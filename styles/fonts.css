@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'arial-black';
+  src: url('../assets/fonts/arial/arial-black.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arial-bold-italic';
+  src: url('../assets/fonts/arial/arial-bold-italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'arial-bold';
+  src: url('../assets/fonts/arial/arial-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'arial-italic';
+  src: url('../assets/fonts/arial/arial-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'arial-narrow-bold-italic';
+  src: url('../assets/fonts/arial/arial-narrow-bold-italic.ttf')
+    format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'arial-narrow-bold';
+  src: url('../assets/fonts/arial/arial-narrow-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arial-narrow-italic';
+  src: url('../assets/fonts/arial/arial-narrow-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'arial-narrow';
+  src: url('../assets/fonts/arial/arial-narrow.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arial-regular';
+  src: url('../assets/fonts/arial/arial-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'georgia-bold-italic';
+  src: url('../assets/fonts/georgia/georgia-bold-italic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'georgia-bold';
+  src: url('../assets/fonts/georgia/georgia-bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'georgia-italic';
+  src: url('../assets/fonts/georgia/georgia-italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'georgia-regular';
+  src: url('../assets/fonts/georgia/georgia-regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
