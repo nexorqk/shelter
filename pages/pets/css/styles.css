@@ -287,9 +287,7 @@
   .location-link:last-child {
     margin-bottom: 4px;
   }
-}
 
-@media screen and (max-width: 767.9px) {
   .nav.open {
     background: var(--color-light-s);
   }

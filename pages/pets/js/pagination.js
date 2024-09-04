@@ -1,5 +1,3 @@
-import petsArr from '../../../assets/pets.json' assert { type: 'json' };
-
 const drawPetCard = ({ img, name }) => {
   return `
     <div class="pets-cards__item">
@@ -14,13 +12,16 @@ const drawPetCard = ({ img, name }) => {
   `;
 };
 
-export const pagination = (recordsPerPage = 8) => {
-  const btnNext = document.querySelector('.btn-next');
-  const btnPrev = document.querySelector('.btn-prev');
-  const btnLast = document.querySelector('.btn-last');
-  const btnFirst = document.querySelector('.btn-first');
-  const cardsContainer = document.querySelector('.pagination__cards');
-  const pageNumNode = document.querySelector('.pagination__btns-number');
+export const pagination = async (recordsPerPage = 8) => {
+  const btnNext = document.querySelector(".btn-next");
+  const btnPrev = document.querySelector(".btn-prev");
+  const btnLast = document.querySelector(".btn-last");
+  const btnFirst = document.querySelector(".btn-first");
+  const cardsContainer = document.querySelector(".pagination__cards");
+  const pageNumNode = document.querySelector(".pagination__btns-number");
+
+  const data = await fetch("../../../assets/pets.json");
+  const petsArr = await data.json();
 
   // return > [3, 1, 6, 7, 5, 2, 4, 0]
 
@@ -46,7 +47,7 @@ export const pagination = (recordsPerPage = 8) => {
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
 
-    cardsContainer.innerHTML = '';
+    cardsContainer.innerHTML = "";
 
     for (let i = (page - 1) * recordsPerPage; i < page * recordsPerPage; i++) {
       cardsContainer.innerHTML += drawPetCard(petsArrPagination[i]);
@@ -86,10 +87,10 @@ export const pagination = (recordsPerPage = 8) => {
     }
   };
 
-  btnNext.addEventListener('click', () => nextPage());
-  btnPrev.addEventListener('click', () => prevPage());
-  btnFirst.addEventListener('click', () => changePage(1));
-  btnLast.addEventListener('click', () => changePage(numPages()));
+  btnNext.addEventListener("click", () => nextPage());
+  btnPrev.addEventListener("click", () => prevPage());
+  btnFirst.addEventListener("click", () => changePage(1));
+  btnLast.addEventListener("click", () => changePage(numPages()));
 
   window.onload = function () {
     changePage(1);
