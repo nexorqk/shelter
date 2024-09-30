@@ -10,7 +10,7 @@ export const burger = () => {
   const changeActiveLink = (clickedLink = "") => {
     navLinksItems.forEach((item) => item.classList.remove("active"));
     const href = clickedLink || window.location.href;
-    console.log(href);
+
     if (href.endsWith("#contacts")) {
       navLinksItems.forEach((item, index) =>
         index === 3 ? item.classList.add("active") : null
