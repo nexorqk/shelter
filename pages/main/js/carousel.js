@@ -58,7 +58,14 @@ export const carousel = (currentNumOfCards, petsArr) => {
 
   CAROUSEL.addEventListener("animationend", (animationEvent) => {
     console.log(animationEvent);
-    // animationName
+
+    if (animationEvent.animationName === "move-left") {
+      const activeGroup = document.querySelector(".pets-cards__group.active");
+
+      activeGroup.innerHTML = "";
+
+      createGroupOfCards([3, 3, 3], groupsOfCardsArr[1]);
+    }
   });
 
   BTN_LEFT.addEventListener("click", moveLeft);
