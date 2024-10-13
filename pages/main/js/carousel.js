@@ -1,4 +1,4 @@
-export const carousel = (currentNumOfCards, petsArr) => {
+export const carousel = (currentNumOfCards = 3, petsArr) => {
   const CAROUSEL = document.querySelector(".carousel");
   const LEFT_ITEM = document.querySelector(".pets-cards__group.left");
   const ACTIVE_ITEM = document.querySelector(".pets-cards__group.active");
@@ -37,7 +37,7 @@ export const carousel = (currentNumOfCards, petsArr) => {
     BTN_RIGHT.removeEventListener("click", moveRight);
   };
 
-  const genereateCoupleWithRandomNumbers = (lenght = 3, exception = []) => {
+  const genereateCoupleWithRandomNumbers = (exception = []) => {
     const arr = new Array(8).fill(0).map((item, index) => item + index);
     const prepArr =
       exception.length > 0
@@ -45,7 +45,7 @@ export const carousel = (currentNumOfCards, petsArr) => {
         : arr;
     const res = [];
 
-    for (let i = 0; i < lenght; i++) {
+    for (let i = 0; i < currentNumOfCards; i++) {
       const index = Math.floor(Math.random() * prepArr.length);
       res.push(prepArr[index]);
       prepArr.splice(index, 1);
@@ -61,9 +61,26 @@ export const carousel = (currentNumOfCards, petsArr) => {
     ACTIVE_ITEM.append(card);
   });
 
+  const expectedArr = [];
+  expectedArr.push(random);
+
+  const secondRandom = genereateCoupleWithRandomNumbers(expectedArr[0]);
+  const sideItems = [LEFT_ITEM, RIGHT_ITEM];
+  sideItems.forEach((itemPos) => {
+    itemPos.innerHTML = "";
+    secondRandom.forEach((item) => {
+      const card = createCard(petsArr[item]);
+      itemPos.append(card);
+    });
+  });
+
+  expectedArr.pop();
+  expectedArr.push(secondRandom);
+
   CAROUSEL.addEventListener("animationend", (event) => {
     let changedItem;
     let secondItem;
+
     if (event.animationName === "move-left") {
       CAROUSEL.classList.remove("transition-left");
       changedItem = LEFT_ITEM;
@@ -79,11 +96,14 @@ export const carousel = (currentNumOfCards, petsArr) => {
     ACTIVE_ITEM.innerHTML = changedItem.innerHTML;
 
     changedItem.innerHTML = "";
-    const randomCouple = genereateCoupleWithRandomNumbers();
+    const randomCouple = genereateCoupleWithRandomNumbers(expectedArr[0]);
     randomCouple.forEach((item) => {
       const card = createCard(petsArr[item]);
       changedItem.append(card);
     });
+
+    expectedArr.pop();
+    expectedArr.push(randomCouple);
 
     BTN_RIGHT.addEventListener("click", moveRight);
     BTN_LEFT.addEventListener("click", moveLeft);
